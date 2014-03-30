@@ -1,6 +1,8 @@
 import copy
 import random
+
 from enum import Enum
+
 
 __author__ = 'jeremy'
 

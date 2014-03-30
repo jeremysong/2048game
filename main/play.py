@@ -1,6 +1,7 @@
 import operator
-import numpy as np
+
 from main.game import Game
+
 
 __author__ = 'jeremy'
 
@@ -101,5 +102,5 @@ if __name__ == '__main__':
 
                     if win > 0:
                         print(
-                        "merge_param: {0}, monotonic param: {1}, dup_param: {2}, occupation_param: {3}, win: {4}/10".format(
-                            merge_param, monotonic_param, dup_param, occupation_param, win))
+                            "merge_param: {0}, monotonic param: {1}, dup_param: {2}, occupation_param: {3}, win: {4}/10".format(
+                                merge_param, monotonic_param, dup_param, occupation_param, win))
