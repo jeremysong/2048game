@@ -7,6 +7,11 @@ __author__ = 'jeremy'
 
 
 def loss_function(movements, old_tiles, merge_param, monotonic_param, dup_param, occupation_param):
+    """
+    Calculates based on the lose function.
+
+    Returns the best(highest lose function output) movement.
+    """
     direction_dict = dict()
     old_tiles_list = list()
     [old_tiles_list.extend(filter(lambda t: t != 0, row)) for row in old_tiles]
@@ -59,6 +64,11 @@ def loss_function(movements, old_tiles, merge_param, monotonic_param, dup_param,
 
 
 def simulate(merge_param, monotonic_param, dup_param, occupation_param, vobose=False):
+    """
+    Simulates 2048 game.
+
+    Returns True if win; otherwise, returns False.
+    """
     game = Game()
 
     while True:
@@ -95,12 +105,12 @@ if __name__ == '__main__':
                 for occupation_param in occupation_param_list:
                     count = 1
                     win = 0
-                    while count <= 10:
+                    while count <= 100:
                         if simulate(merge_param, monotonic_param, dup_param, occupation_param, vobose=False):
                             win += 1
                         count += 1
 
                     if win > 0:
                         print(
-                            "merge_param: {0}, monotonic param: {1}, dup_param: {2}, occupation_param: {3}, win: {4}/10".format(
+                            "merge_param: {0}, monotonic param: {1}, dup_param: {2}, occupation_param: {3}, win: {4}/100".format(
                                 merge_param, monotonic_param, dup_param, occupation_param, win))

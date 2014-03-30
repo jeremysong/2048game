@@ -5,6 +5,9 @@ __author__ = 'jeremy'
 
 class Game:
     def __init__(self):
+        """
+        Constructor. Create new game board.
+        """
         self.__board = Board()
         self.__movement = {
             Direction.up: self.__board.move_up,
@@ -14,11 +17,14 @@ class Game:
         }
 
     def restart(self):
+        """
+        Restarts game board.
+        """
         self.__board = Board()
 
     def get_tiles(self):
         """
-        Defensive copy
+        Defensive copy of current board tiles.
         """
         return self.__board.get_tiles()
 
@@ -26,6 +32,9 @@ class Game:
         print(self.__board)
 
     def attempt_movement(self):
+        """
+        Tries all possible movements. Returns a list of (direction, tiles after movement) tuples.
+        """
         movement_list = list()
         for direction in [Direction.left, Direction.down, Direction.right, Direction.up]:
             movable, tiles = self.__board.try_move(direction)
@@ -35,6 +44,11 @@ class Game:
         return movement_list if len(movement_list) != 0 else None
 
     def move(self, direction):
+        """
+        Move tiles towards a specific redirection.
+
+        Returns True if win. Otherwise, returns None.
+        """
         self.__movement[direction]()
         if self.__board.is_win():
             return True
