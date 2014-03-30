@@ -1,5 +1,7 @@
 import operator
 
+import numpy as np
+
 from main.game import Game
 
 
@@ -89,26 +91,24 @@ def simulate(merge_param, monotonic_param, dup_param, occupation_param, vobose=F
 
 
 if __name__ == '__main__':
-    # merge_param_list = np.arange(0.5, 5.5, 0.5)
-    # monotonic_param_list = np.arange(0.5, 5.5, 0.5)
-    # dup_param_list = np.arange(0.5, 5.5, 0.5)
-    # occupation_param_list = np.arange(0.5, 5.5, 0.5)
+    merge_param_list = np.arange(0.5, 5.5, 0.5)
+    monotonic_param_list = np.arange(0.5, 5.5, 0.5)
+    dup_param_list = np.arange(0.5, 5.5, 0.5)
+    occupation_param_list = np.arange(0.5, 5.5, 0.5)
 
-    merge_param_list = [2.5]
-    monotonic_param_list = [3.5]
-    dup_param_list = [2.5]
-    occupation_param_list = [0.5]
+    # merge_param_list = [2.5]
+    # monotonic_param_list = [3.5]
+    # dup_param_list = [2.5]
+    # occupation_param_list = [0.5]
 
     for merge_param in merge_param_list:
         for monotonic_param in monotonic_param_list:
             for dup_param in dup_param_list:
                 for occupation_param in occupation_param_list:
-                    count = 1
-                    win = 0
-                    while count <= 100:
+                    for count in range(0, 100):
+                        win = 0
                         if simulate(merge_param, monotonic_param, dup_param, occupation_param, vobose=False):
                             win += 1
-                        count += 1
 
                     if win > 0:
                         print(
