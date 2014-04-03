@@ -40,7 +40,7 @@ def loss_function(movements, old_tiles, merge_param, monotonic_param, dup_param,
                     occupation_value += i + j
                 if prev > tiles[i][j]:
                     monitonic_value += prev - tiles[i][j]
-                    # monitonic_value += 1
+                    # monotonic_value += 1
                 if prev == tiles[i][j] and prev != 0:
                     dup_value += prev * 2
                 prev = tiles[i][j]
@@ -52,7 +52,7 @@ def loss_function(movements, old_tiles, merge_param, monotonic_param, dup_param,
                     occupation_value += i + j
                 if prev > tiles[i][j]:
                     monitonic_value += prev - tiles[i][j]
-                    # monitonic_value += 1
+                    # monotonic_value += 1
                 if prev == tiles[i][j] and prev != 0:
                     dup_value += prev * 2
                 prev = tiles[i][j]
