@@ -8,11 +8,11 @@ from main.game import Game
 __author__ = 'jeremy'
 
 
-def loss_function(movements, old_tiles, merge_param, monotonic_param, dup_param, occupation_param):
+def decision_function(movements, old_tiles, merge_param, monotonic_param, dup_param, occupation_param):
     """
-    Calculates based on the lose function.
+    Calculates based on the decision function.
 
-    Returns the best(highest lose function output) movement.
+    Returns the best(largest decision function output) movement.
     """
     direction_dict = dict()
     old_tiles_list = list()
@@ -82,7 +82,7 @@ def simulate(merge_param, monotonic_param, dup_param, occupation_param, vobose=F
             return False
         if vobose:
             game.print_tiles()
-        max_direction = loss_function(movements, game.get_tiles(), merge_param, monotonic_param, dup_param,
+        max_direction = decision_function(movements, game.get_tiles(), merge_param, monotonic_param, dup_param,
                                       occupation_param)
         if game.move(max_direction):
             if vobose:
