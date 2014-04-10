@@ -129,7 +129,8 @@ class Board:
         """
         tiles = list()
         [tiles.extend(row) for row in self.__tiles]
-        return 2048 in tiles
+        # return 2048 in tiles
+        return False
 
     def is_lose(self):
         """

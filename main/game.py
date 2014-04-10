@@ -31,6 +31,9 @@ class Game:
     def print_tiles(self):
         print(self.__board)
 
+    def print_max_tile(self):
+        print(max([tile for sublist in self.get_tiles() for tile in sublist]))
+
     def attempt_movement(self):
         """
         Tries all possible movements. Returns a list of (direction, tiles after movement) tuples.

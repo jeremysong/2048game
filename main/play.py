@@ -77,6 +77,7 @@ def simulate(merge_param, monotonic_param, dup_param, occupation_param, vobose=F
         movements = game.attempt_movement()
         if movements is None:
             # print("Lose")
+            game.print_max_tile()
             if vobose:
                 game.print_tiles()
             return False
@@ -106,7 +107,7 @@ if __name__ == '__main__':
             for dup_param in dup_param_list:
                 for occupation_param in occupation_param_list:
                     win = 0
-                    for count in range(0, 100):
+                    for count in range(0, 5000):
                         if simulate(merge_param, monotonic_param, dup_param, occupation_param, vobose=False):
                             win += 1
 
